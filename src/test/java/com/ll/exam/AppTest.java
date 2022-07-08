@@ -16,7 +16,7 @@ public class AppTest {
     }
 
     @Test
-    public void 테스트_스캐너() {
+    public void 문장열을_스캐너의_입력으로_설정() {
         String input = """
                 등록
                 명언1
