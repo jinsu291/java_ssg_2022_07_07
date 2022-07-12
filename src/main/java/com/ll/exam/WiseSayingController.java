@@ -51,7 +51,7 @@ public class WiseSayingController {
 
         List<WiseSaying> wiseSayings = wiseSayingRepository.findAll();
 
-        for (int i = wiseSayingRepository.wiseSayings.size() - 1; i >= 0; i--) {
+        for (int i = wiseSayings.size() - 1; i >= 0; i--) {
             WiseSaying wiseSaying_ = wiseSayings.get(i);
             System.out.printf("%d / %s / %s\n", wiseSaying_.id, wiseSaying_.content, wiseSaying_.author);
         }
@@ -65,7 +65,7 @@ public class WiseSayingController {
 
         WiseSaying wiseSaying = wiseSayingRepository.write(content, author);
 
-        System.out.printf("%d번 명언이 등록되었습니다.\n", id);
+        System.out.printf("%d번 명언이 등록되었습니다.\n", wiseSaying.id);
     }
 
     public void remove(Rq rq){
