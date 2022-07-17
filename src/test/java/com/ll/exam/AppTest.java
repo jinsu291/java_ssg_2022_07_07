@@ -14,13 +14,16 @@ public class AppTest {
         Util.mkdir("test_data");
         Util.saveToFile("test_data/1.json", "내용");
 
+        String rs = Util.readFromFile("test_data/1.json");
+
+        assertEquals("내용", rs);
     }
     @Test
     void 파일에_저장된_내용_가져오기(){
         Util.mkdir("test_data");
         Util.saveToFile("test_data/1.json", "내용");
 
-        String body = Util.getFromFile("test_data/1.json");
+        String body = Util.readFromFile("test_data/1.json");
 
         System.out.println(body);
     }
