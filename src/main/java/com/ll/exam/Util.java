@@ -73,6 +73,9 @@ public class Util {
     }
 
     public static void deleteDir(String path) {
+        //파일 삭제
+        new File(path).delete();
+
         Path rootPath = Paths.get(path);
         try (Stream<Path> walk = Files.walk(rootPath)) {
             walk.sorted(Comparator.reverseOrder())
@@ -81,6 +84,22 @@ public class Util {
         } catch (IOException e) {
 
         }
+    }
+
+    public static void saveNumberToFile(String path, int number) {
+        saveToFile(path, number + "");
+    }
+
+    public static int readNumberFromFile(String path, int defaultValue) {
+        String rs = readFromFile(path);
+
+        if(rs == null){
+            return defaultValue;
+        }
+        if(rs.isEmpty()){
+            return defaultValue;
+        }
+        return Integer.parseInt(rs);
     }
 }
 
